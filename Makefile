@@ -17,7 +17,7 @@ run:
 	./test_sn_list
 
 memcheck:
-	valgrind --leak-check=yes
+	valgrind --leak-check=yes ./test_sn_list
 
 clean:
 	rm *.o
