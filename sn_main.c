@@ -128,7 +128,7 @@ int main(){
 
   printf("Testing free_list:\n");
   test_sn_list = free_list(test_sn_list);
-  printf("List after freeing:");
+  printf("List after freeing: ");
   print_list(test_sn_list);
   printf("\n");
 
