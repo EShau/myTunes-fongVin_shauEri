@@ -150,6 +150,23 @@ int main(){
   add_song(table, "Imagine Dragons", "Radioactive");
   add_song(table, "Alan Walker", "Alone");
   add_song(table, "Alan Walker", "Sing Me to Sleep");
+  printf("added above songs to library\n");
+  printf("printing library\n");
   print_library(table);
 
+  printf("printing lists of library by artist, individually\n");
+  printf("\nprinting A-list:\n");
+  print_letter(table, 'A');
+  printf("printing I-list:\n");
+  print_letter(table, 'I');
+  printf("printing L-list:\n");
+  print_letter(table, 'L');
+  printf("printing M-list:\n");
+  print_letter(table, 'M');
+  printf("printing O-list:\n");
+  print_letter(table, 'O');
+  printf("printing T-list:\n");
+  print_letter(table, 'T');
+
+  
 }
