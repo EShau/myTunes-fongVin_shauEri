@@ -12,6 +12,14 @@ void song_exist(struct song_node * s) {
         else printf("Uh oh! Song not found!\n");
 }
 
+void artist_exist(struct song_node * s) {
+        if (s){
+          printf("Artist found!: ");
+          print_list(s);
+        }
+        else printf("Uh oh! Artist not found!\n");
+}
+
 int main(){
   srand(time(NULL));
   struct song_node * test_sn_list = NULL;
@@ -70,7 +78,7 @@ int main(){
   printf("Looking for artist: [M. Maggie]\n");
   song = find_first_song(test_sn_list, "M. Maggie");
   if (song != NULL){
-    printf("Song found!: ");
+    printf("Artist found!: ");
     print_list(song);
   }
   else{
@@ -156,7 +164,25 @@ int main(){
   printf("printing T-list:\n");
   print_letter(table, 'T');
 
-  printf("\nsearching for Alan Walker - Faded:\n");
+  printf("\nsearching for songs:\n");
+  printf("searching for Alan Walker - Faded:\n");
   song = search_song(table, "Alan Walker", "Faded");
   song_exist(song);
+  printf("searching for Imagine Dragons - Radioactive:\n");
+  song = search_song(table, "Imagine Dragons", "Radioactive");
+  song_exist(song);
+  printf("searching for Imagine Dragons - Thunder:\n");
+  song = search_song(table, "Imagine Dragons", "Thunder");
+  song_exist(song);
+
+  printf("\nsearching for artists:\n");
+  printf("searching for Alan Walker:\n");
+  song = search_artist(table, "Alan Walker");
+  artist_exist(song);
+  printf("searching for Imagine Dragons:\n");
+  song = search_artist(table, "Imagine Dragons");
+  artist_exist(song);
+  printf("searching for Drake:\n");
+  song = search_artist(table, "Drake");
+  artist_exist(song);
 }

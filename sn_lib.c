@@ -32,3 +32,8 @@ struct song_node *search_song(struct song_node *table[27], char *artist, char *n
     int letter = let_to_num(artist[0]);
     return find_song(table[letter], artist, name);
 }
+
+struct song_node *search_artist(struct song_node *table[27], char *artist) {
+    int letter = let_to_num(artist[0]);
+    return find_first_song(table[letter], artist);
+}
