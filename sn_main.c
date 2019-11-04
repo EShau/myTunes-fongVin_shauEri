@@ -162,6 +162,15 @@ int main(){
   song = search_artist(table, "Drake");
   artist_exist(song);
 
+  printf("\nshuffling:\n");
+  for (int i = 0; i < 5; i++){
+    song = shuffle(table);
+    printf("[");
+    print_song(song);
+    printf("]\n");
+  }
+  printf("\n");
+
   printf("\nremoving songs from library:\n");
   printf("removing Avicii - The Nights:\n");
   remove_songlib(table, "Avicii", "The Nights");

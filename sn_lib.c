@@ -38,6 +38,16 @@ struct song_node *search_artist(struct song_node *table[27], char *artist) {
         return find_first_song(table[letter], artist);
 }
 
+struct song_node *shuffle(struct song_node *table[27]) {
+        int rng = rand() % 27;
+        for (; rng < rng + 27; rng++) {
+                if (table[rng % 27]) {
+                        return random_song(table[rng % 27]);
+                }
+        }
+        return NULL;
+}
+
 void remove_songlib(struct song_node *table[27], char *artist, char *name) {
         int i = let_to_num(artist[0]);
         table[i] = remove_song(table[i], artist, name);
@@ -45,7 +55,7 @@ void remove_songlib(struct song_node *table[27], char *artist, char *name) {
 
 void free_library(struct song_node *table[27]) {
         for (int i = 0; i < 27; i++) {
-                if (table[i] != NULL) {
+                if (table[i]) {
                         table[i] = free_list(table[i]);
                 }
         }
