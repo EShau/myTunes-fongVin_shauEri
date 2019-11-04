@@ -1,4 +1,4 @@
-#include "sn_list.h"
+#include "sn_lib.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -6,6 +6,7 @@
 int main(){
   srand(time(NULL));
   struct song_node * test_sn_list = NULL;
+  printf("\nLIST TESTING\n");
   printf("Testing out print_list (and also print_song), insert_order, and insert_front:\n");
   printf("Printing an empty song list:\n");
   print_list(test_sn_list);
@@ -130,6 +131,25 @@ int main(){
   test_sn_list = free_list(test_sn_list);
   printf("List after freeing: ");
   print_list(test_sn_list);
-  printf("\n");
+
+  printf("\nLIBRARY TESTING\n\n");
+
+  struct song_node * table[27];
+  for (int i = 0; i < 27; i++) {
+          table[i] = NULL;
+  }
+
+  add_song(table, "Avicii", "Waiting for Love");
+  add_song(table, "Alan Walker", "Faded");
+  add_song(table, "Imagine Dragons", "Demons");
+  add_song(table, "The Eden Project", "X0");
+  add_song(table, "Aaron Smith", "Dancin");
+  add_song(table, "Avicii", "The Nights");
+  add_song(table, "Lucian", "Down the Middle");
+  add_song(table, "M. Maggie", "Trndsttr");
+  add_song(table, "Imagine Dragons", "Radioactive");
+  add_song(table, "Alan Walker", "Alone");
+  add_song(table, "Alan Walker", "Sing Me to Sleep");
+  print_library(table);
 
 }
