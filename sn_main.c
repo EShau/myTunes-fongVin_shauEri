@@ -3,6 +3,15 @@
 #include <stdlib.h>
 #include <time.h>
 
+void song_exist(struct song_node * s) {
+        if (s){
+          printf("Song found!: [");
+          print_song(s);
+          printf("]\n");
+        }
+        else printf("Uh oh! Song not found!\n");
+}
+
 int main(){
   srand(time(NULL));
   struct song_node * test_sn_list = NULL;
@@ -29,34 +38,13 @@ int main(){
   printf("Testing out find_song:\n");
   printf("Looking for: [Aaron Smith: Dancin]\n");
   struct song_node * song = find_song(test_sn_list, "Aaron Smith", "Dancin");
-  if (song != NULL){
-    printf("Song found!: [");
-    print_song(song);
-    printf("]\n");
-  }
-  else{
-    printf("Uh oh! Song not found!\n");
-  }
+  song_exist(song);
   printf("Looking for: [Imagine Dragons: Radioactive]\n");
   song = find_song(test_sn_list, "Imagine Dragons", "Radioactive");
-  if (song != NULL){
-    printf("Song found!: [");
-    print_song(song);
-    printf("]\n");
-  }
-  else{
-    printf("Uh oh! Song not found!\n");
-  }
+  song_exist(song);
   printf("Looking for: [Avicii: Heaven]\n");
   song = find_song(test_sn_list, "Avicii", "Heaven");
-  if (song != NULL){
-    printf("Song found!: [");
-    print_song(song);
-    printf("]\n");
-  }
-  else{
-    printf("Uh oh! Song not found!\n");
-  }
+  song_exist(song);
   printf("\n");
 
 
@@ -168,5 +156,7 @@ int main(){
   printf("printing T-list:\n");
   print_letter(table, 'T');
 
-  
+  printf("\nsearching for Alan Walker - Faded:\n");
+  song = search_song(table, "Alan Walker", "Faded");
+  song_exist(song);
 }

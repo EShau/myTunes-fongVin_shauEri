@@ -3,11 +3,14 @@
 #include <string.h>
 #include "sn_lib.h"
 
+int let_to_num(char ch) {
+        int c = ((int) ch) - 65;
+        if ((c >= 0) && (c < 26)) return c;
+        else return 26;
+}
+
 void add_song(struct song_node *table[27], char *artist, char *name) {
-        int c = ((int) artist[0]) - 65;
-        int i;
-        if ((c >= 0) && (c < 26)) i = c;
-        else i = 26;
+        int i = let_to_num(artist[0]);
         table[i] = insert_order(table[i], artist, name);
 }
 
@@ -21,9 +24,11 @@ void print_library(struct song_node *table[27]) {
 }
 
 void print_letter(struct song_node *table[27], char letter) {
-        int c = ((char) letter) - 65;
-        int i;
-        if ((c >= 0) && (c < 26)) i = c;
-        else i = 26;
+        int i = let_to_num(letter);
         print_list(table[i]);
+}
+
+struct song_node *search_song(struct song_node *table[27], char *artist, char *name) {
+    int letter = let_to_num(artist[0]);
+    return find_song(table[letter], artist, name);
 }
