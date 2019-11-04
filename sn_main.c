@@ -162,6 +162,17 @@ int main(){
   song = search_artist(table, "Drake");
   artist_exist(song);
 
+  printf("\nremoving songs from library:\n");
+  printf("removing Avicii - The Nights:\n");
+  remove_songlib(table, "Avicii", "The Nights");
+  print_library(table);
+  printf("removing Avicii - Waiting For Love:\n");
+  remove_songlib(table, "Avicii", "Waiting for Love");
+  print_library(table);
+  printf("removing Avicii - Levels:\n");
+  remove_songlib(table, "Avicii", "Levels");
+  print_library(table);
+
   printf("\nfreeing library:\n");
   free_library(table);
   printf("\nlibrary after freeing:\n");
