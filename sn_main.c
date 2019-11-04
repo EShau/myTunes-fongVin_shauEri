@@ -59,40 +59,16 @@ int main(){
   printf("Testing out find_first_song:\n");
   printf("Looking for artist: [Alan Walker]\n");
   song = find_first_song(test_sn_list, "Alan Walker");
-  if (song != NULL){
-    printf("Song found!: ");
-    print_list(song);
-  }
-  else{
-    printf("Uh oh! Artist not found!\n");
-  }
+  artist_exist(song);
   printf("Looking for artist: [Imagine Dragons]\n");
   song = find_first_song(test_sn_list, "Imagine Dragons");
-  if (song != NULL){
-    printf("Song found!: ");
-    print_list(song);
-  }
-  else{
-    printf("Uh oh! Artist not found!\n");
-  }
+  artist_exist(song);
   printf("Looking for artist: [M. Maggie]\n");
   song = find_first_song(test_sn_list, "M. Maggie");
-  if (song != NULL){
-    printf("Artist found!: ");
-    print_list(song);
-  }
-  else{
-    printf("Uh oh! Artist not found!\n");
-  }
+  artist_exist(song);
   printf("Looking for artist: [George Bush]\n");
   song = find_first_song(test_sn_list, "George Bush");
-  if (song != NULL){
-    printf("Song found!: ");
-    print_list(song);
-  }
-  else{
-    printf("Uh oh! Artist not found!\n");
-  }
+  artist_exist(song);
   printf("\n");
 
 
@@ -185,4 +161,10 @@ int main(){
   printf("searching for Drake:\n");
   song = search_artist(table, "Drake");
   artist_exist(song);
+
+  printf("\nfreeing library:\n");
+  free_library(table);
+  printf("\nlibrary after freeing:\n");
+  print_library(table);
+  printf("\n");
 }

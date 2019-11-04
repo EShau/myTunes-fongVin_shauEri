@@ -29,11 +29,19 @@ void print_letter(struct song_node *table[27], char letter) {
 }
 
 struct song_node *search_song(struct song_node *table[27], char *artist, char *name) {
-    int letter = let_to_num(artist[0]);
-    return find_song(table[letter], artist, name);
+        int letter = let_to_num(artist[0]);
+        return find_song(table[letter], artist, name);
 }
 
 struct song_node *search_artist(struct song_node *table[27], char *artist) {
-    int letter = let_to_num(artist[0]);
-    return find_first_song(table[letter], artist);
+        int letter = let_to_num(artist[0]);
+        return find_first_song(table[letter], artist);
+}
+
+void free_library(struct song_node *table[27]) {
+        for (int i = 0; i < 27; i++) {
+                if (table[i] != NULL) {
+                        table[i] = free_list(table[i]);
+                }
+        }
 }
